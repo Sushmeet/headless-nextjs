@@ -1,18 +1,13 @@
 import Image from "next/image";
 import Particles from "./particles";
 import Illustration from "@/public/images/glow-bottom.svg";
-import { getContentForHero, getContentForLogoWall } from "@/content/queries";
+import { getContentForHero } from "@/content/queries";
 
 export default async function Hero() {
   const data = await getContentForHero();
   const content = data.heroCollection.items[0];
   const cta1 = data.heroCollection.items[0].callToActionsCollection.items[0];
   const cta2 = data.heroCollection.items[0].callToActionsCollection.items[1];
-
-  const data2 = await getContentForLogoWall();
-  const content2 = data2.assetCollection.items;
-
-  console.log("content2222", content2);
 
   return (
     <section>
